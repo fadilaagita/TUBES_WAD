@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\KaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +24,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+    //crud karyawan
+    Route::get('/admin/karyawan', [KaryawanController::class, 'index'])->name('admin.karyawan.index');
 });
