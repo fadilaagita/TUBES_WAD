@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
     //crud karyawan
+<<<<<<< Updated upstream
     Route::get('/admin/karyawan', [KaryawanController::class, 'index'])->name('admin.karyawan.index');
     //crud supplier
     Route::get('/admin/supplier', [SupplierController::class, 'index'])->name('supplier.index');
@@ -35,4 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/supplier/{id}/edit', [SupplierController::class, 'edit'])->name('supplier.edit');
     Route::put('/admin/supplier/{id}', [SupplierController::class, 'update'])->name('supplier.update');
     Route::delete('/admin/supplier/{id}', [SupplierController::class, 'destroy'])->name('supplier.delete');
+=======
+    Route::get('/admin/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
+>>>>>>> Stashed changes
 });
