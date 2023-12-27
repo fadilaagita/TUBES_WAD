@@ -35,9 +35,9 @@
                         <td>{{ $supplier->no_telp }}</td>
                         <td>{{ $supplier->email }}</td>
                         <td>
-                            <a href="/supplier/{{ $sup->id_supplier }}" class="btn btn-info">Detail</a>
-                            <a href="/supplier/{{ $sup->id_supplier }}/edit" class="btn btn-success">Ubah</a>
-                            <form action="/supplier/{{ $sup->id_supplier }}" method="post" class="d-inline">
+                            <a href="/supplier/{{ $supplier->supplier_id }}" class="btn btn-info">Detail</a>
+                            <a href="/supplier/{{ $supplier->supplier_id }}/edit" class="btn btn-success">Ubah</a>
+                            <form action="/supplier/{{ $supplier->supplier_id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
