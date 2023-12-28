@@ -6,7 +6,7 @@
         <div class="col-12">
             <h1 class="mt-3">Ubah Data Supplier</h1>
             <form method="post" action="/admin/supplier/{{ $supplier->supplier_id }}">
-                @method('patch')
+                @method('put')
                 @csrf
                 <div class="mb-3">
                     <label for="nama_supplier" class="form-label">Nama Supplier</label>
