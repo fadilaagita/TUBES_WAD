@@ -17,21 +17,21 @@ class KaryawanController extends Controller
     public function index()
     {
         $karyawan = Karyawan::all();
-        return view('admin.karyawan.index', compact('karyawan'));
+        return view('karyawan.index', compact('karyawan'));
     }
 
     public function create()
     {
-        return view('admin.karyawan.create');
+        return view('karyawan.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nama_karyawan' => 'required|unique:karyawan',
-            'alamat' => 'required|date',
-            'no_telpr' => 'required',
-            'email' => 'required|unique:karyawan',
+            'nama_karyawan' => 'required|unique:karyawans',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+            'email' => 'required|email',
             'shift' => 'required'
         ]);
 
@@ -43,7 +43,7 @@ class KaryawanController extends Controller
             'shift' => $request->shift
         ]);
 
-        return redirect()->route('admin.karyawan.index')->with('success', 'Karyawan Berhasil ditambahkan!');
+        return redirect()->route('karyawan.index')->with('success', 'Karyawan Berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -64,7 +64,7 @@ class KaryawanController extends Controller
         $karyawan = Karyawan::find($id);
 
         if (!$karyawan) {
-            return redirect()->route('admin.karyawan.index')->with('error', 'Karyawan Tidak ditemukan.');
+            return redirect()->route('karyawan.index')->with('error', 'Karyawan Tidak ditemukan.');
         }
         
         $karyawan->nama_karyawan = $request->nama_karyawan;
@@ -74,7 +74,7 @@ class KaryawanController extends Controller
         $karyawan->shift = $request->shift;
         $karyawan->save();
 
-        return redirect()->route('admin.karyawan.index')->with('success', 'Karyawan berhasil diupdate!');
+        return redirect()->route('karyawan.index')->with('success', 'Karyawan berhasil diupdate!');
     }
 
     public function destroy($id)
@@ -82,7 +82,7 @@ class KaryawanController extends Controller
         $karyawan = Karyawan::find($id);
         $karyawan->delete();
 
-        return redirect()->route('admin.karyawan.index')->with('success', 'Karyawan berhasil dihapus!');
+        return redirect()->route('karyawan.index')->with('success', 'Karyawan berhasil dihapus!');
     }
 
     

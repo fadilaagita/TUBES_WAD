@@ -26,7 +26,14 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/dashboard', [BarangController::class, 'index'])->name('admin.dashboard');
     //crud karyawan
-    Route::get('/admin/karyawan', [KaryawanController::class, 'index'])->name('admin.karyawan.index');
+    Route::get('/admin/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
+    Route::get('/admin/karyawan/create', [KaryawanController::class, 'create'])->name('karyawan.create');
+    Route::post('/admin/karyawan', [KaryawanController::class, 'store'])->name('karyawan.store');
+    Route::get('/admin/karyawan/{id}/edit', [KaryawanController::class, 'edit'])->name('karyawan.edit');
+    Route::put('/admin/karyawan/{id}', [KaryawanController::class, 'update'])->name('karyawan.update');
+    Route::delete('/admin/karyawan/{id}', [KaryawanController::class, 'destroy'])->name('karyawan.delete');
+    Route::get('/admin/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
+
     //crud supplier
     Route::get('/admin/supplier', [SupplierController::class, 'index'])->name('supplier.index');
     Route::get('/admin/supplier/create', [SupplierController::class, 'create'])->name('supplier.create');
@@ -34,7 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/supplier/{id}/edit', [SupplierController::class, 'edit'])->name('supplier.edit');
     Route::put('/admin/supplier/{id}', [SupplierController::class, 'update'])->name('supplier.update');
     Route::delete('/admin/supplier/{id}', [SupplierController::class, 'destroy'])->name('supplier.delete');
-    Route::get('/admin/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
 
     //crud barang
     Route::get('/admin/barang/create', [BarangController::class, 'create'])->name('barang.create');
