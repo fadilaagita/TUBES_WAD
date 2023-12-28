@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\KategoriController;
 
 
 /*
@@ -33,6 +34,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/admin/karyawan/{id}', [KaryawanController::class, 'update'])->name('karyawan.update');
     Route::delete('/admin/karyawan/{id}', [KaryawanController::class, 'destroy'])->name('karyawan.delete');
     Route::get('/admin/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
+
+    //crud kategori
+    Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('kategori.index');
+    Route::get('/admin/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
+    Route::post('/admin/kategori', [KategoriController::class, 'store'])->name('kategori.store');
+    Route::get('/admin/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
+    Route::put('/admin/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+    Route::delete('/admin/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete');
+    Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('kategori.index');
+
 
     //crud supplier
     Route::get('/admin/supplier', [SupplierController::class, 'index'])->name('supplier.index');

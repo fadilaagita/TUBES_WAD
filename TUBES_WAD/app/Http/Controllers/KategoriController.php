@@ -17,12 +17,12 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::all();
-        return view('admin.kategori.index', compact('kategori'));
+        return view('kategori.index', compact('kategori'));
     }
 
     public function create()
     {
-        return view('admin.kategori.create');
+        return view('kategori.create');
     }
 
     public function store(Request $request)
@@ -33,7 +33,7 @@ class KategoriController extends Controller
         Kategori::create([
             'nama_kategori' => $request->nama_kategori
         ]);
-        return redirect()->route('admin.kategori.index')->with('Success','Congrats Your Parents Are Proud Of You');
+        return redirect()->route('kategori.index')->with('Success','Congrats Your Parents Are Proud Of You');
     }
 
     public function update(Request $request, $id){
@@ -44,7 +44,7 @@ class KategoriController extends Controller
         $kategori = Kategori::find($id);
 
         if(!$kategori){
-            redirect()->route('admin.kategori.edit')->with('Failed', 'Failure Just Like You Are');
+            redirect()->route('kategori.edit')->with('Failed', 'Failure Just Like You Are');
         }
 
         $kategori->nama_kategori = $request->nama_kategori;
@@ -56,6 +56,6 @@ class KategoriController extends Controller
         $kategori = Kategori::find($id);
         $kategori->delete();
 
-        return redirect()->route('admin.kategori.index')->with('Success', 'Congrats this is the only thing you can do is to delete');
+        return redirect()->route('kategori.index')->with('Success', 'Congrats this is the only thing you can do is to delete');
     }
 }
