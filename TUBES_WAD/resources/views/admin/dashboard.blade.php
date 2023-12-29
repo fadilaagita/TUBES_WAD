@@ -35,18 +35,18 @@
         </div>
     </div>
 </div>
-<div class="manual">
-    <table class="table table-striped">
+<div class="container">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">Nama Barang</th>
-                <th scope="col">Harga Barang</th>
-                <th scope="col">Kategori Barang</th>
-                <th scope="col">Stok Barang</th>
-                <th scope="col">Deskripsi</th>
-                <th scope="col">Nama Supplier</th>
+                <th scope="col">Harga</th>
+                <th scope="col">Kategori</th>
+                <th scope="col">Stok</th>
+                <th scope="col" style="width: 225px; word-wrap: break-word;">Deskripsi</th>
+                <th scope="col">Supplier</th>
                 <th scope="col">Tanggal Masuk</th>
-                <th scope="col">Karyawan Bertugas</th>
+                <th scope="col" style="width: 170px;">Karyawan Bertugas</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
@@ -54,7 +54,7 @@
             @foreach( $barangs as $barang )
             <tr>
                 <td>{{ $barang->nama_barang }}</td>
-                <td>{{ $barang->harga }}</td>
+                <td>Rp. {{ number_format($barang->harga, 0, ',', '.') }}</td>
                 <td>{{ $barang->kategori->nama_kategori }}</td>
                 <td>{{ $barang->stock }}</td>
                 <td>{{ $barang->deskripsi }}</td>
@@ -62,7 +62,7 @@
                 <td>{{ date('d F Y', strtotime($barang->tanggal_masuk)) }}</td>
                 <td>{{ $barang->karyawan->nama_karyawan }}</td>
                 <td>
-                    <a href="/admin/barang/{{ $barang->id }}/edit" class="btn btn-success">Ubah</a>
+                    <a href="/admin/barang/{{ $barang->id }}/edit" class="btn btn-success mb-3">Ubah</a>
                     <form action="/admin/barang/{{ $barang->id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
