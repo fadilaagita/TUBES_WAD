@@ -36,6 +36,12 @@ class KategoriController extends Controller
         return redirect()->route('kategori.index')->with('Success','Congrats Your Parents Are Proud Of You');
     }
 
+    public function edit($id)
+    {
+        $kategori = Kategori::find($id);
+        return view('kategori.edit', compact('kategori'));
+    }
+
     public function update(Request $request, $id){
         $request->validate([
             'nama_kategori' => 'required|unique:categories',
