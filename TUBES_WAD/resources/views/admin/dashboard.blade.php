@@ -63,7 +63,7 @@
                 <td>{{ $barang->karyawan->nama_karyawan }}</td>
                 <td>
                     <a href="/admin/barang/{{ $barang->id }}/edit" class="btn btn-success">Ubah</a>
-                    <form action="/admin/barang/{{ $barang->barang_id }}" method="post" class="d-inline">
+                    <form action="/admin/barang/{{ $barang->id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>

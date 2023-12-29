@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12">
             <h1 class="mt-3">Edit Barang</h1>
-            <form method="post" action="/admin/barang/{{ $barang->barang_id }}">
+            <form method="post" action="/admin/barang/{{ $barang->id }}">
                 @method('put')
                 @csrf
                 <div class="mb-3">
@@ -19,7 +19,17 @@
                     </div>
                     @enderror
                 </div>
-                <in
+                <div class="mb-3">
+                    <label for="kategori_id" class="form-label"> Kategori Barang</label>
+                    <select class="form-select @error('kategori_id') is-invalid @enderror" aria-label="Default select example" name="kategori_id">
+                        <option value="" disabled selected>Pilih Kategori Barang</option>
+                        @foreach($kategoris as $kategori)
+                            <option value="{{ $kategori->kategori_id }}" {{ $kategori->kategori_id == $barang->kategori_id ? 'selected' : '' }}>
+                                {{ $kategori->nama_kategori }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="mb-3">
                     <label for="harga" class="form-label">Harga Barang</label>
                     <input type="number" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="Masukkan harga barang" name="harga" value="{{ $barang->harga }}">
@@ -47,7 +57,32 @@
                     </div>
                     @enderror
                 </div>
-
+                <div class="mb-3">
+                    <label for="supplier_id" class="form-label">Nama Supplier</label>
+                    <select class="form-select @error('supplier_id') is-invalid @enderror" aria-label="Default select example" name="supplier_id">
+                        <option value="" disabled selected>Pilih Supplier</option>
+                        @foreach($suppliers as $supplier)
+                            <option value="{{ $supplier->supplier_id }}" {{ $supplier->supplier_id == $barang->supplier_id ? 'selected' : '' }}>
+                                {{ $supplier->nama_supplier }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="tanggal_masuk">Tanggal Masuk</label>
+                    <input type="date" class="form-control @error('tanggal_masuk') is-invalid @enderror" id="tanggal_masuk" placeholder="Masukkan tanggal masuk" name="tanggal_masuk" value="{{ \Carbon\Carbon::parse($barang->tanggal_masuk)->format('Y-m-d') }}">
+                </div>
+                <div class="mb-3">
+                    <label for="karyawan_id">Nama Karyawan yang Bertugas</label>
+                    <select class="form-select @error('karyawan_id') is-invalid @enderror" aria-label="Default select example" name="karyawan_id">
+                        <option value="" disabled selected>Pilih Karyawan</option>
+                        @foreach($karyawans as $karyawan)
+                            <option value="{{ $karyawan->karyawan_id }}" {{ $karyawan->karyawan_id == $barang->karyawan_id ? 'selected' : '' }}>
+                                {{ $karyawan->nama_karyawan }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Ubah Data</button>
             </form>
 
