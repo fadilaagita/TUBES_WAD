@@ -17,19 +17,19 @@ class KaryawanSeeder extends Seeder
         //
         $data = [
             [
-                'nama_karyawan' => 'Rizky Ngawi',
-                'alamat' => 'Jl. kita berbeda',
+                'nama_karyawan' => 'Octamevia Inkaputri',
+                'alamat' => 'Jl. Bojongsoang',
                 'no_telp' => '081234567890',
-                'email' => 'rizky@gmail.com',
+                'email' => 'mevi@gmail.com',
                 'shift' => 'Pagi',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
                 'nama_karyawan' => 'John Doe',
-                'alamat' => 'Jl. sama kamu',
+                'alamat' => 'Jl. Cikoneng',
                 'no_telp' => '081234567891',
-                'email' => 'joh@gmail.com',
+                'email' => 'john@gmail.com',
                 'shift' => 'Pagi',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
@@ -53,10 +53,10 @@ class KaryawanSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
-                'nama_karyawan' => 'Joni Kecil',
+                'nama_karyawan' => 'Antonio Conte',
                 'alamat' => 'Jl. Raya Bandung',
                 'no_telp' => '081234567894',
-                'email' => 'joni@gmail.com',
+                'email' => 'anton@gmail.com',
                 'shift' => 'Malam',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
