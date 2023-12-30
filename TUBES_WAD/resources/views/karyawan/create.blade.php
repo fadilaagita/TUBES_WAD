@@ -1,7 +1,4 @@
 @extends('layouts.layout')
-
-@extends('layouts.sidebar')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -49,13 +46,14 @@
                 <div class="mb-3">
                     <label for="shift" class="form-label">Shift</label>
                     <select class="form-select @error('shift') is-invalid @enderror" aria-label="Default select example" name="shift">
+                        <option selected>--Pilih Shift--</option>
                         <option value="pagi">Pagi</option>
                         <option value="siang">Siang</option>
                         <option value="malam">Malam</option>
                     </select>
 
                 </div>
-                <button type="submit" class="btn btn-primary">Ubah Data</button>
+                <button type="submit" class="btn btn-primary">Tambah Data</button>
             </form>
         </div>
     </div>

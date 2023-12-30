@@ -1,6 +1,4 @@
 @extends('layouts.layout')
-
-@extends('layouts.sidebar')
 <style>
     .container {
         max-width: 1000px;
@@ -19,7 +17,7 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
+    <div class="row ">
         <div class="col-12">
             <h1 class="mt-3">Daftar Barang</h1>
             <a href="/admin/barang/create" class="btn btn-primary my-3">Tambah Data Barang</a>
@@ -36,7 +34,7 @@
     </div>
 </div>
 <div class="container">
-    <table class="table table-bordered">
+    <table class="table ">
         <thead>
             <tr>
                 <th scope="col">Nama Barang</th>

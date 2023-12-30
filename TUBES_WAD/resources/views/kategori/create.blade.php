@@ -1,7 +1,4 @@
 @extends('layouts.layout')
-
-@extends('layouts.sidebar')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -18,7 +15,7 @@
                     </div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">Ubah Data</button>
+                <button type="submit" class="btn btn-primary">Tambah Kategori</button>
             </form>
         </div>
     </div>

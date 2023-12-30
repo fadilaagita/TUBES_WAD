@@ -36,10 +36,10 @@ class KategoriController extends Controller
         return redirect()->route('kategori.index')->with('Success','Congrats Your Parents Are Proud Of You');
     }
 
-    public function edit($id)
-    {
-        $kategori = Kategori::find($id);
+    public function edit($id){
+        $kategori  = Kategori::find($id);
         return view('kategori.edit', compact('kategori'));
+
     }
 
     public function update(Request $request, $id){
@@ -48,13 +48,11 @@ class KategoriController extends Controller
         ]);
 
         $kategori = Kategori::find($id);
+        $kategori->update([
+            'nama_kategori' => $request->nama_kategori
+        ]);
+        return redirect()->route('kategori.index')->with('Success', 'Congrats another failure make');
 
-        if(!$kategori){
-            redirect()->route('kategori.edit')->with('Failed', 'Failure Just Like You Are');
-        }
-
-        $kategori->nama_kategori = $request->nama_kategori;
-        $kategori->save();
     }
 
     public function destroy($id)

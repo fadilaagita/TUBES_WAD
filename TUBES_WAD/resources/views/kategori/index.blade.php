@@ -1,7 +1,5 @@
 @extends('layouts.layout')
 
-@extends('layouts.sidebar')
-
 @section('content')
 <div class="container">
     <div class="row">

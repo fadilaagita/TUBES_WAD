@@ -33,7 +33,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/karyawan/{id}/edit', [KaryawanController::class, 'edit'])->name('karyawan.edit');
     Route::put('/admin/karyawan/{id}', [KaryawanController::class, 'update'])->name('karyawan.update');
     Route::delete('/admin/karyawan/{id}', [KaryawanController::class, 'destroy'])->name('karyawan.delete');
-    Route::get('/admin/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
 
     //crud kategori
     Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('kategori.index');
@@ -42,7 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::put('/admin/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
     Route::delete('/admin/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.delete');
-    Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('kategori.index');
 
 
     //crud supplier

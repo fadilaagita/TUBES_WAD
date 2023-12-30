@@ -51,28 +51,31 @@ class KaryawanController extends Controller
         $karyawan = Karyawan::find($id);
         return view('karyawan.edit', compact('karyawan'));
     }
-
+    
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_karyawan' => 'required|unique:karyawan',
-            'alamat' => 'required|date',
-            'no_telpr' => 'required',
-            'email' => 'required|unique:karyawan',
+            'nama_karyawan' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+            'email' => 'required',
             'shift' => 'required'
         ]);
+        // dd($request);
         $karyawan = Karyawan::find($id);
+        $karyawan->update([
+            'nama_karyawan'=>$request->nama_karyawan,
+            'alamat' => $request->alamat,
+            'no_telp' => $request->no_telp,
+            'email' => $request->email,
+            'shift' => $request->shift
+            
+        ]);
 
         if (!$karyawan) {
             return redirect()->route('karyawan.index')->with('error', 'Karyawan Tidak ditemukan.');
         }
         
-        $karyawan->nama_karyawan = $request->nama_karyawan;
-        $karyawan->alamat = $request->alamat;
-        $karyawan->no_telp = $request->no_telp;
-        $karyawan->email = $request->email;
-        $karyawan->shift = $request->shift;
-        $karyawan->save();
 
         return redirect()->route('karyawan.index')->with('success', 'Karyawan berhasil diupdate!');
     }

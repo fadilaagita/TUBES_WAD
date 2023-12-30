@@ -1,7 +1,4 @@
 @extends('layouts.layout')
-
-@extends('layouts.sidebar')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -17,13 +14,14 @@
                 {{ session('status1') }}
             </div>
             @endif
-            <table class="table table-striped">
+            <table class="table ">
                 <thead>
                     <tr>
                         <th scope="col">Nama Karyawan</th>
                         <th scope="col">Alamat Karyawan</th>
                         <th scope="col">No. Telp Karyawan</th>
                         <th scope="col">Email Karyawan</th>
+                        <th scope="col">Shift</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
