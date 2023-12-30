@@ -14,9 +14,10 @@
                 {{ session('status1') }}
             </div>
             @endif
-            <table class="table ">
+            <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th scope="col">No.</th>
                         <th scope="col">Nama Karyawan</th>
                         <th scope="col">Alamat Karyawan</th>
                         <th scope="col">No. Telp Karyawan</th>
@@ -26,8 +27,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php $i = 1; @endphp
                     @foreach( $karyawan as $karyawan )
                     <tr>
+                        <th scope="row">{{ $i++ }}</th>
                         <td>{{ $karyawan->nama_karyawan }}</td>
                         <td>{{ $karyawan->alamat }}</td>
                         <td>{{ $karyawan->no_telp }}</td>

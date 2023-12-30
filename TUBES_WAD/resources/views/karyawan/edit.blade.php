@@ -48,11 +48,16 @@
                 <div class="mb-3">
                     <label for="shift" class="form-label">Shift</label>
                     <select class="form-select @error('shift') is-invalid @enderror" id="shift" aria-placeholder="Pilih shift Karyawan" name="shift">
-                        <option value="pagi" {{ $karyawan->shift == "Pagi" ? 'selected'}}>Pagi</option>
-                        <option value="siang" {{ $karyawan->shift == "Siang" ? 'selected'}}>Siang</option>
-                        <option value="malam" {{ $karyawan->shift == "Malam" ? 'selected'}}>Malam</option>
+                        <option value="pagi" {{ $karyawan->shift == "Pagi" ? 'selected' : '' }}>Pagi</option>
+                        <option value="siang" {{ $karyawan->shift == "Siang" ? 'selected' : '' }}>Siang</option>
+                        <option value="malam" {{ $karyawan->shift == "Malam" ? 'selected' : '' }}>Malam</option>
                     </select>
-
+                    @error('shift')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Ubah Data</button>
             </form>

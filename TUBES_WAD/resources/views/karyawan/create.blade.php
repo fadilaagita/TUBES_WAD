@@ -51,7 +51,12 @@
                         <option value="siang">Siang</option>
                         <option value="malam">Malam</option>
                     </select>
-
+                    @error('shift')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Tambah Data</button>
             </form>

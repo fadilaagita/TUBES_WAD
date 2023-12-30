@@ -14,9 +14,10 @@
                 {{ session('status1') }}
             </div>
             @endif
-            <table class="table custom-table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th scope="col">No.</th>
                         <th scope="col">Nama Supplier</th>
                         <th scope="col">Alamat Supplier</th>
                         <th scope="col">No. Telp Supplier</th>
@@ -25,8 +26,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php $i = 1; @endphp
                     @foreach( $suppliers as $supplier )
                     <tr>
+                        <th scope="row">{{ $i++ }}</th>
                         <td>{{ $supplier->nama_supplier }}</td>
                         <td>{{ $supplier->alamat }}</td>
                         <td>{{ $supplier->no_telp }}</td>

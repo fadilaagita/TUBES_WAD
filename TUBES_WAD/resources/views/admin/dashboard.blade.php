@@ -34,9 +34,10 @@
     </div>
 </div>
 <div class="container">
-    <table class="table ">
+    <table class="table table-striped">
         <thead>
             <tr>
+                <th scope="col">No.</th>
                 <th scope="col">Nama Barang</th>
                 <th scope="col">Harga</th>
                 <th scope="col">Kategori</th>
@@ -49,8 +50,10 @@
             </tr>
         </thead>
         <tbody>
+            @php $i = 1; @endphp
             @foreach( $barangs as $barang )
             <tr>
+                <th scope="row">{{ $i++ }}</th>
                 <td>{{ $barang->nama_barang }}</td>
                 <td>Rp. {{ number_format($barang->harga, 0, ',', '.') }}</td>
                 <td>{{ $barang->kategori->nama_kategori }}</td>

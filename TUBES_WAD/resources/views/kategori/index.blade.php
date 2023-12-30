@@ -18,12 +18,16 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th scope="col" style="width: 100px;">No.</th>
                         <th scope="col">Kategori</th>
+                        <th scope="col" style="width: 200px;">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php $i = 1; @endphp
                     @foreach( $kategori as $kategori )
                     <tr>
+                        <th scope="row">{{ $i++ }}</th>
                         <td>{{ $kategori->nama_kategori }}</td>
                         <td>
                             <a href="/admin/kategori/{{ $kategori->kategori_id }}/edit" class="btn btn-success">Ubah</a>
