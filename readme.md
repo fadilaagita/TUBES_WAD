@@ -19,28 +19,35 @@
 
 3. Environment Setup
     Copy the .env.example file and rename the copy to .env:
+   
     `cp .env.example .env`
+   
     Open .env file in a text editor and set the database connection details for your MySQL server.
 
-4. Generate Application Key
+5. Generate Application Key
     Generate a new application key with the artisan command:
+   
     `php artisan key:generate`
 
-5. Database Creation
+7. Database Creation
     Create a new database in your PHPMyAdmin named manajemen-gudang.
 
-6. Run Migrations
+8. Run Migrations
     To set up your database tables, run the migration command:
+   
     `php artisan migrate`.</s>
 
-7. Database Seeding
+10. Database Seeding
     Seed your database with initial data by running:
+    
     `php artisan db:seed`</s>
 
-8. Compile Assets with NPM
+12. Compile Assets with NPM
     Compile your front-end assets using:
+    
     `npm run dev`</s>
 
-9. Start the Laravel Server
+14. Start the Laravel Server
     Start your Laravel application using:
+    
     `php artisan serve`</s>
