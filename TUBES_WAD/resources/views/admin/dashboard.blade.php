@@ -42,11 +42,11 @@
                 <th scope="col">Harga</th>
                 <th scope="col">Kategori</th>
                 <th scope="col">Stok</th>
-                <th scope="col" style="width: 225px; word-wrap: break-word;">Deskripsi</th>
+                <th scope="col" style="width: 200px; word-wrap: break-word;">Deskripsi</th>
                 <th scope="col">Supplier</th>
                 <th scope="col">Tanggal Masuk</th>
                 <th scope="col" style="width: 170px;">Karyawan Bertugas</th>
-                <th scope="col">Aksi</th>
+                <th scope="col" style="width: 170px;">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -63,7 +63,7 @@
                 <td>{{ date('d F Y', strtotime($barang->tanggal_masuk)) }}</td>
                 <td>{{ $barang->karyawan->nama_karyawan }}</td>
                 <td>
-                    <a href="/admin/barang/{{ $barang->id }}/edit" class="btn btn-success mb-3">Ubah</a>
+                    <a href="/admin/barang/{{ $barang->id }}/edit" class="btn btn-success">Ubah</a>
                     <form action="/admin/barang/{{ $barang->id }}" method="post" class="d-inline">
                         @method('delete')
                         @csrf
