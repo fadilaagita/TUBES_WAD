@@ -37,7 +37,9 @@
                             <button class="btn btn-dark btn-lg btn-block" type="submit">Sign in</button>
                         </div>
                     </form>
-
+                    <div>
+                        <p class="mb-0">Don't have an account? <a href="/register" class="text-dark fw-bold">Sign Up</a></p>
+                    </div>
                 </div>
               </div>
             </div>

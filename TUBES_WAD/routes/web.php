@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\BarangController;
@@ -23,6 +24,10 @@ Route::get('/', [LoginController::class, 'index']);
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//register
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/dashboard', [BarangController::class, 'index'])->name('admin.dashboard');
