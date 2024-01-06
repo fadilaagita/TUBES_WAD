@@ -26,11 +26,21 @@
                         <div class="form-outline mb-4">
                             <input type="email" id="email" name="email" class="form-control form-control-lg" />
                             <label class="form-label" for="email">Email address</label>
+                            @if($errors->has('email'))
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('email') }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="form-outline mb-4">
                             <input type="password" id="password" name="password" class="form-control form-control-lg" />
                             <label class="form-label" for="password">Password</label>
+                            @if($errors->has('password'))
+                                <div class="alert alert-danger">
+                                    {{ $errors->first('password') }}
+                                </div>
+                            @endif
                         </div>
 
                         <div class="pt-1 mb-4">
